@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vBase: {fileID: -1051711950, guid: 2c71c5a4dd87bfc4ebf6893e26b7f314, type: 3}
   vBaseNo: {fileID: -333974438, guid: 2c71c5a4dd87bfc4ebf6893e26b7f314, type: 3}
+  vBaseNoOnly: {fileID: 2131677357, guid: 2c71c5a4dd87bfc4ebf6893e26b7f314, type: 3}
   left:
   - {fileID: -1344963265, guid: 2c71c5a4dd87bfc4ebf6893e26b7f314, type: 3}
   - {fileID: -1834229406, guid: 2c71c5a4dd87bfc4ebf6893e26b7f314, type: 3}

@@ -15,16 +15,23 @@ public class InvocationCircle : MonoBehaviour
     const float SMOOTH_SUMMONING = 0.1f;
     CharAnimations animations;
 
+    [Header("Colors")]
+    [ColorUsage(false, true), SerializeField] Color errorColor;
+    Color baseColor;
+
     //Inputs
+    [Header("Inputs")]
     InputMap inputs;
     RunePart lastFrameRuneDir;
     float dirProgress;
     const float HOLD_DIR_TIME = 0.5f;
 
     //Rune
+    [Header("Runes")]
     [SerializeField] LanguageRune[] displayRunes;
     public List<RunePart> inputRunes;
     bool hasDirBeenValdiated;
+    bool areRunesValid;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +40,8 @@ public class InvocationCircle : MonoBehaviour
         isSummoningState = new CompositeStateToken();
         PlayerState.Instance.freezePositionState.Add(isSummoningState);
         animations = PlayerState.Instance.transform.GetComponentInChildren<CharAnimations>();
+
+        baseColor = mat.GetColor("_PowerColor");
 
         inputs = new InputMap();
         inputs.Gameplay.Enable();
@@ -96,15 +105,19 @@ public class InvocationCircle : MonoBehaviour
         PlayerState.Instance.GetComponentInChildren<CharController>().LerpToPosition(transform.position);
         animations.LookCamera();
         animations.SetSummoningIdle();
+        SFXManager.PlaySound(GlobalSFX.StartSummoning);
+        areRunesValid = true;
     }
 
     public void ExitSummoningState()
     {
         inputRunes = null;
-        mat.SetFloat("FillInput", 0);
+        mat.SetFloat("_FillInput", 0);
+        mat.SetColor("_PowerColor", baseColor);
         isSummoningState.SetOn(false);
         animations.ExitSummoning();
         ClearRunesDisplay();
+        SFXManager.PlaySound(GlobalSFX.ExitSummoning);
     }
 
     void ParseSummoningInput(Vector2 dir)
@@ -175,10 +188,18 @@ public class InvocationCircle : MonoBehaviour
         ClearRunesDisplay();
         if (LanguageAlphabet.TryParseSentence(inputRunes, out List<List<RunePart>> runes))
         {
+            SFXManager.PlaySound(GlobalSFX.SummoningInput);
             for (int i = 0; i < runes.Count; i++)
             {
                 displayRunes[i].Draw(runes[i]);
             }
+        }
+        else if(areRunesValid)
+        {
+            //Error
+            SFXManager.PlaySound(GlobalSFX.SummoningError);
+            mat.SetColor("_PowerColor", errorColor);
+            areRunesValid = false;
         }
     }
 

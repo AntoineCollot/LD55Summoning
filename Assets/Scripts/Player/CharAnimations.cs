@@ -70,7 +70,25 @@ public class CharAnimations : MonoBehaviour
             isSummoning = true;
             anim.SetBool("IsSummoning", true);
         }
-        this.runeDir = runeDir;
+        if(runeDir != this.runeDir || isIdle)
+        { 
+            this.runeDir = runeDir;
+            switch (runeDir)
+            {
+                case RunePart.Up:
+                    SFXManager.PlaySound(GlobalSFX.SUp);
+                    break;
+                case RunePart.Right:
+                    SFXManager.PlaySound(GlobalSFX.SRight);
+                    break;
+                case RunePart.Down:
+                    SFXManager.PlaySound(GlobalSFX.SDown);
+                    break;
+                case RunePart.Left:
+                    SFXManager.PlaySound(GlobalSFX.SLeft);
+                    break;
+            }
+        }
         isIdle = false;
     }
 

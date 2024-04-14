@@ -7,23 +7,19 @@ using UnityEditor;
 
 public enum GlobalSFX
 {
-    Jump,
-    Land,
-    EnemyDeath,
-    CatKill,
-    EagleKill,
-    CatAttack,
-    EagleAttack,
-    Hit,
-    Slide,
-    Kick,
-    Dive,
-    DiveLanding,
-    PlayerDeath,
-    ButtonClick,
-    ProjectileExplosion,
-    LevelCleared,
+    OpenBook,
+    StartSummoning,
+    ExitSummoning,
+    SUp,
+    SRight,
+    SDown,
+    SLeft,
+    SummoningError,
+    SummoningSuccess,
+    SummoningInput,
+    CloseBook,
 }
+
 public class SFXManager : MonoBehaviour
 {
     public SFXBank bank;

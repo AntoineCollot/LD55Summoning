@@ -81,6 +81,7 @@ public class BookController : MonoBehaviour
         charAnimations.PickUpBook(true);
         bookAnim.SetBool("IsPickedUp", true);
         freezePlayer.SetOn(true);
+        SFXManager.PlaySound(GlobalSFX.OpenBook);
     }
 
     public void DropBook()
@@ -90,5 +91,6 @@ public class BookController : MonoBehaviour
         charAnimations.PickUpBook(false);
         bookAnim.SetBool("IsPickedUp", false);
         freezePlayer.SetOn(false);
+        SFXManager.PlaySound(GlobalSFX.CloseBook);
     }
 }

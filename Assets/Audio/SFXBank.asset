@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59190a8b7e08e4446842f69026b11840, type: 3}
+  m_Name: SFXBank
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 8300000, guid: 9022a106ea29f15408c0a63f48546811, type: 3}
+  - {fileID: 8300000, guid: 9713cf0ea1df231448085163ea726732, type: 3}
+  - {fileID: 8300000, guid: a294d2d4f98bea54b85d3e95a5f4a2b6, type: 3}
+  - {fileID: 8300000, guid: 6c8baaef24fbc4b41be048a16be04e42, type: 3}
+  - {fileID: 8300000, guid: af75cf854ae07104597b8248e52bfc9d, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  volumes:
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+  - 1
+  - 0.5
+  - 0.5
+  - 0.5

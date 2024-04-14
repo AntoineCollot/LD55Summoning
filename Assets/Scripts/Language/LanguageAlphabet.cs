@@ -9,6 +9,7 @@ public class LanguageAlphabet : ScriptableObject
     [Header("Bases")]
     public Sprite vBase;
     public Sprite vBaseNo;
+    public Sprite vBaseNoOnly;
 
     [Header("Lines")]
     public Sprite[] left;
@@ -20,7 +21,7 @@ public class LanguageAlphabet : ScriptableObject
     public const int MAX_LINES = 4;
     public const int MAX_RUNES = 4;
 
-    public Sprite GetBase(RunePart rune)
+    public Sprite GetBase(RunePart rune, bool hasNext = false)
     {
         switch (rune)
         {
@@ -28,7 +29,10 @@ public class LanguageAlphabet : ScriptableObject
             default:
                 return vBase;
             case RunePart.Down:
-                return vBaseNo;
+                if (!hasNext)
+                    return vBaseNoOnly;
+                else
+                    return vBaseNo;
         }
     }
 
@@ -71,8 +75,12 @@ public class LanguageAlphabet : ScriptableObject
         int start = 1;
         if (rune[0] == RunePart.Down)
         {
-            if (rune.Count < 2 || rune[1] != RunePart.Up)
+            if (rune.Count >= 2 && rune[1] != RunePart.Up)
                 return false;
+
+            //Down alone is true because it can be up next
+            else if (rune.Count < 2)
+                return true;
 
             start = 2;
         }
@@ -80,19 +88,21 @@ public class LanguageAlphabet : ScriptableObject
         //Check that there is no more up part or too much components
         int lines = 0;
         int partID = start;
-        while(partID < rune.Count)
+        RunePart currentRune = RunePart.Up;
+        while (partID < rune.Count)
         {
-            ParseRune(rune, partID, out RunePart displayPart, out int repeat);
+            ParseRune(rune, partID, out currentRune, out int repeat);
 
             //Check no up
-            if (displayPart == RunePart.Up)
+            if (currentRune == RunePart.Up)
                 return false;
 
             lines++;
             partID++;
             partID += repeat;
         }
-        if (lines > MAX_LINES)
+        //Down is authorized over max line as it can be used by up
+        if (lines > MAX_LINES && currentRune!=RunePart.Down || lines > MAX_LINES+1)
             return false;
 
         return true;
@@ -132,7 +142,7 @@ public class LanguageAlphabet : ScriptableObject
             i++;
 
             //if down
-            if (dirs[i] == RunePart.Down)
+            if (i< dirs.Count && dirs[i-1] == RunePart.Down)
             {
                 //Expect up
                 if (dirs[i]!= RunePart.Up)
@@ -157,7 +167,7 @@ public class LanguageAlphabet : ScriptableObject
             }
 
             //Check if we add the last rune (if not down, cause down is used to no the next rune)
-            if (dirs[i] != RunePart.Down)
+            if (!(dirs[i] == RunePart.Down && (i + 1 < dirs.Count && dirs[i+1] == RunePart.Up)))
             {
                 currentRune.Add(dirs[i]);
                 i++;
@@ -166,6 +176,11 @@ public class LanguageAlphabet : ScriptableObject
             //Add rune and move next
             runes.Add(currentRune);
 
+            //Check if end again
+            if (i >= dirs.Count)
+                break;
+
+            //Check if max rune reached
             if (runes.Count >= MAX_RUNES)
                 break;
         }

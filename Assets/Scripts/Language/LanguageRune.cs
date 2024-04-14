@@ -35,6 +35,7 @@ public class LanguageRune : MonoBehaviour
     {
         Clear();
 
+        gameObject.SetActive(true);
         if (!LanguageAlphabet.IsRuneValid(runeParts))
         {
             Debug.Log("<color=#FF4444>Rune isn't valid</color>");
@@ -44,7 +45,7 @@ public class LanguageRune : MonoBehaviour
         vBase.enabled = true;
         //Base
         int runeID = 0;
-        vBase.sprite = alphabet.GetBase(runeParts[runeID]);
+        vBase.sprite = alphabet.GetBase(runeParts[runeID], runeParts.Count>1);
         if (runeParts[runeID] == RunePart.Down)
             runeID++;
         runeID++;
@@ -65,6 +66,10 @@ public class LanguageRune : MonoBehaviour
             runeID++;
             //Do not process the repeats
             runeID += repeat;
+
+            //Check if end draw (can happen because of down input)
+            if (lineID >= lines.Length)
+                break;
         }
     }
 
@@ -77,6 +82,7 @@ public class LanguageRune : MonoBehaviour
         {
             line.enabled = false;
         }
+        gameObject.SetActive(false);
     }
 }
 

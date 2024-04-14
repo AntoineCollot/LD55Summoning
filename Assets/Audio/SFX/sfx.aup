@@ -1,0 +1,150 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="sfx_data" version="1.3.0" audacityversion="2.4.2" sel0="0.0000000000" sel1="0.0000000000" vpos="0" h="0.0000000000" zoom="40.3747558594" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags>
+		<tag name="major_brand" value="isom"/>
+		<tag name="Software" value="Lavf57.56.101"/>
+		<tag name="minor_version" value="512"/>
+		<tag name="compatible_brands" value="isomiso2mp41"/>
+	</tags>
+	<wavetrack name="Piste audio" isSelected="0" height="150" minimized="1" channel="2" linked="0" mute="1" solo="0" rate="44100" gain="10.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="59904">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808736.au" len="59904" min="-0.021834" max="0.021998" rms="0.005974"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Flag Wind Samples" isSelected="0" height="63" minimized="1" channel="0" linked="1" mute="1" solo="0" rate="44100" gain="1.412538" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="33773">
+				<waveblock start="0">
+					<simpleblockfile filename="e08081fe.au" len="33773" min="-0.167701" max="0.306229" rms="0.021851"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Flag Wind Samples" isSelected="0" height="63" minimized="1" channel="1" linked="0" mute="1" solo="0" rate="44100" gain="1.412538" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="33773">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808a15.au" len="33773" min="-0.167701" max="0.306229" rms="0.021851"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="RandSFX0" isSelected="0" height="150" minimized="1" channel="2" linked="0" mute="1" solo="0" rate="44100" gain="0.251189" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="55192">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808699.au" len="55192" min="-0.314731" max="0.298004" rms="0.058227"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Piste audio" isSelected="0" height="150" minimized="1" channel="2" linked="0" mute="1" solo="0" rate="44100" gain="11.220184" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="38400">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808ad0.au" len="38400" min="-0.038297" max="0.036991" rms="0.007444"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Piste audio" isSelected="0" height="150" minimized="1" channel="2" linked="0" mute="1" solo="0" rate="44100" gain="1.584893" pan="0.0" colorindex="0">
+		<waveclip offset="-0.17337868" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="84248">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808f46.au" len="84248" min="-0.229024" max="0.179239" rms="0.00445"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Flag Wind Samples" isSelected="0" height="71" minimized="1" channel="0" linked="1" mute="1" solo="0" rate="44100" gain="3.548134" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="20505">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808f6b.au" len="20505" min="-0.172127" max="0.097937" rms="0.017514"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Flag Wind Samples" isSelected="0" height="71" minimized="1" channel="1" linked="0" mute="1" solo="0" rate="44100" gain="3.548134" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="20505">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808c87.au" len="20505" min="-0.172127" max="0.097937" rms="0.017514"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Piste audio" isSelected="0" height="150" minimized="1" channel="2" linked="0" mute="1" solo="0" rate="44100" gain="10.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="40448">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808045.au" len="40448" min="-0.041592" max="0.059785" rms="0.008321"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Flag Wind Samples" isSelected="0" height="62" minimized="1" channel="0" linked="1" mute="1" solo="0" rate="44100" gain="1.778279" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="15681">
+				<waveblock start="0">
+					<simpleblockfile filename="e080814b.au" len="15681" min="-0.149888" max="0.188387" rms="0.022705"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Flag Wind Samples" isSelected="0" height="62" minimized="1" channel="1" linked="0" mute="1" solo="0" rate="44100" gain="1.778279" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="15681">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808ea3.au" len="15681" min="-0.149888" max="0.188387" rms="0.022705"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Piste audio" isSelected="1" height="150" minimized="1" channel="2" linked="0" mute="0" solo="0" rate="44100" gain="10.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="38400">
+				<waveblock start="0">
+					<simpleblockfile filename="e080827f.au" len="38400" min="-0.133175" max="0.105214" rms="0.016532"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Flag Wind Samples" isSelected="0" height="49" minimized="1" channel="0" linked="1" mute="0" solo="0" rate="44100" gain="2.511886" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="14474">
+				<waveblock start="0">
+					<simpleblockfile filename="e080867b.au" len="14474" min="-0.149366" max="0.187577" rms="0.023316"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Flag Wind Samples" isSelected="0" height="49" minimized="1" channel="1" linked="0" mute="0" solo="0" rate="44100" gain="2.511886" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="14474">
+				<waveblock start="0">
+					<simpleblockfile filename="e080818c.au" len="14474" min="-0.149366" max="0.187577" rms="0.023316"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>

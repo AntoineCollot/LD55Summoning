@@ -374,6 +374,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Language_StartDown
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e5efea93676e3c40a2113873342e9d1
+      internalID: 2131677357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -398,6 +419,7 @@ TextureImporter:
       Language_Right3: -405941946
       Language_RightBottom: 1759266733
       Language_RightBottom2: 1463403973
+      Language_StartDown: 2131677357
       Language_Up: -1051711950
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
