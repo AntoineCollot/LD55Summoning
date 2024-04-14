@@ -44,6 +44,15 @@ public partial class @InputMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Memorize"",
+                    ""type"": ""Button"",
+                    ""id"": ""603d3ea2-5ad0-42d5-826f-1e254734e00a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -200,6 +209,28 @@ public partial class @InputMap: IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""30bc03b9-2d59-4468-b4d1-aa9181d5686b"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Memorize"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fbdbba1a-1d21-4dd2-b08b-668ca0a61071"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Memorize"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -210,6 +241,7 @@ public partial class @InputMap: IInputActionCollection2, IDisposable
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
         m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
+        m_Gameplay_Memorize = m_Gameplay.FindAction("Memorize", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -273,12 +305,14 @@ public partial class @InputMap: IInputActionCollection2, IDisposable
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
     private readonly InputAction m_Gameplay_Move;
     private readonly InputAction m_Gameplay_Interact;
+    private readonly InputAction m_Gameplay_Memorize;
     public struct GameplayActions
     {
         private @InputMap m_Wrapper;
         public GameplayActions(@InputMap wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Gameplay_Move;
         public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
+        public InputAction @Memorize => m_Wrapper.m_Gameplay_Memorize;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -294,6 +328,9 @@ public partial class @InputMap: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @Memorize.started += instance.OnMemorize;
+            @Memorize.performed += instance.OnMemorize;
+            @Memorize.canceled += instance.OnMemorize;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -304,6 +341,9 @@ public partial class @InputMap: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @Memorize.started -= instance.OnMemorize;
+            @Memorize.performed -= instance.OnMemorize;
+            @Memorize.canceled -= instance.OnMemorize;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -325,5 +365,6 @@ public partial class @InputMap: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnMemorize(InputAction.CallbackContext context);
     }
 }

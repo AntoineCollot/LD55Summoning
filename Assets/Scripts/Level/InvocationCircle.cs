@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class InvocationCircle : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class InvocationCircle : MonoBehaviour
     RunePart lastFrameRuneDir;
     float dirProgress;
     const float HOLD_DIR_TIME = 0.5f;
+    public UnityEvent onRuneEvent = new UnityEvent();
 
     //Rune
     [Header("Runes")]
@@ -32,6 +34,11 @@ public class InvocationCircle : MonoBehaviour
     public List<RunePart> inputRunes;
     bool hasDirBeenValdiated;
     bool areRunesValid;
+
+    [Header("Work")]
+    [SerializeField] Renderer workSquare;
+    Material workSquareMat;
+    bool workDone;
 
     // Start is called before the first frame update
     void Start()
@@ -107,6 +114,7 @@ public class InvocationCircle : MonoBehaviour
         animations.SetSummoningIdle();
         SFXManager.PlaySound(GlobalSFX.StartSummoning);
         areRunesValid = true;
+        workDone = false;
     }
 
     public void ExitSummoningState()
@@ -178,7 +186,7 @@ public class InvocationCircle : MonoBehaviour
 
     void ValidateDir(RunePart runeDir)
     {
-        if (hasDirBeenValdiated)
+        if (hasDirBeenValdiated || workDone)
             return;
 
         hasDirBeenValdiated = true;
@@ -201,6 +209,8 @@ public class InvocationCircle : MonoBehaviour
             mat.SetColor("_PowerColor", errorColor);
             areRunesValid = false;
         }
+
+        onRuneEvent.Invoke();
     }
 
     void ClearRunesDisplay()
@@ -208,6 +218,27 @@ public class InvocationCircle : MonoBehaviour
         for (int i = 0; i < displayRunes.Length; i++)
         {
             displayRunes[i].Clear();
+        }
+    }
+
+    public void SummoningSuccess()
+    {
+        workDone = true;
+        mat.SetColor("_PowerColor", errorColor);
+
+        StartCoroutine(WorkDoneAnim());
+    }
+
+    IEnumerator WorkDoneAnim()
+    {
+        float t = 0;
+        while(t<1)
+        {
+            t += Time.deltaTime;
+
+            mat.SetFloat("_Power", Mathf.PingPong(Mathf.Clamp01(t)*2, 1));
+
+            yield return null;
         }
     }
 }

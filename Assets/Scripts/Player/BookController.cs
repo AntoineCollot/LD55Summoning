@@ -10,7 +10,7 @@ public class BookController : MonoBehaviour
     CharAnimations charAnimations;
     CompositeStateToken freezePlayer;
     Book hoveredBook;
-    Book pickedUpBook;
+    public Book pickedUpBook { get;private set; }
     public bool HasBook => pickedUpBook != null;
 
     public UnityEvent onBookEvent = new UnityEvent();
@@ -79,6 +79,7 @@ public class BookController : MonoBehaviour
 
         pickedUpBook = book;
         pickedUpBook.HideBook(true);
+        book.SetTexture();
         bookRenderer.sharedMaterials = book.SharedMaterials;
         PlayerState.Instance.GetComponentInChildren<CharController>().LerpToPosition(book.transform.position);
         charAnimations.PickUpBook(true);

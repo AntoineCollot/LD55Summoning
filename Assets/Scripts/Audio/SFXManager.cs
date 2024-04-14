@@ -18,6 +18,9 @@ public enum GlobalSFX
     SummoningSuccess,
     SummoningInput,
     CloseBook,
+    PhoneRing,
+    PhonePickUp,
+    Smoke,
 }
 
 public class SFXManager : MonoBehaviour

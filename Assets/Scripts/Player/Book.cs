@@ -5,7 +5,9 @@ using UnityEngine;
 public class Book : MonoBehaviour
 {
     public Material pageMat;
+    public Texture2D pageTexture;
     public MeshRenderer bookRenderer;
+    public ScriptableRune rune;
     const float PICK_UP_DELAY = 0.4f;
 
     public Material[] SharedMaterials
@@ -15,6 +17,11 @@ public class Book : MonoBehaviour
             Material[] bookMat = bookRenderer.sharedMaterials;
             return new Material[3] { bookMat[0], bookMat[1], pageMat };
         }
+    }
+
+    public void SetTexture()
+    {
+        pageMat.SetTexture("_Albedo", pageTexture);
     }
 
     public void HideBook(bool value)

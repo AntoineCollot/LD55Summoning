@@ -13,26 +13,32 @@ MonoBehaviour:
   m_Name: SFXBank
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 1a1afe09b626b204ea693b9fd238ed5a, type: 3}
+  - {fileID: 8300000, guid: 3276046cddff08043a36b60d04ca0bfa, type: 3}
+  - {fileID: 8300000, guid: 58e5e8e73c17af8499794a561a34ad15, type: 3}
   - {fileID: 8300000, guid: 9022a106ea29f15408c0a63f48546811, type: 3}
   - {fileID: 8300000, guid: 9713cf0ea1df231448085163ea726732, type: 3}
   - {fileID: 8300000, guid: a294d2d4f98bea54b85d3e95a5f4a2b6, type: 3}
   - {fileID: 8300000, guid: 6c8baaef24fbc4b41be048a16be04e42, type: 3}
   - {fileID: 8300000, guid: af75cf854ae07104597b8248e52bfc9d, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: fb8e7f68a23283b4188eb935445a4122, type: 3}
+  - {fileID: 8300000, guid: fd89e264e4f2e544dbb6352a281b55db, type: 3}
+  - {fileID: 8300000, guid: 53af22ac125a3874db9fe6aa099fb75a, type: 3}
+  - {fileID: 8300000, guid: 66747618eeab28a4dbd5f2161f235e7e, type: 3}
+  - {fileID: 8300000, guid: cf3950040dfe07544bfdce7d30114513, type: 3}
+  - {fileID: 8300000, guid: f4f492cf9603a7248bf86fc10b960806, type: 3}
   volumes:
-  - 0.5
-  - 0.5
-  - 0.5
+  - 1
+  - 1
+  - 0.8
   - 0.5
   - 0.5
   - 0.5
   - 0.5
   - 1
+  - 1
+  - 0.7
   - 0.5
-  - 0.5
-  - 0.5
+  - 0.7
+  - 1
+  - 1

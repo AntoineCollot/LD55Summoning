@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 035b7b222460ec54aac431ab4687524a, type: 3}
+  m_Name: _VaseAssembler
+  m_EditorClassIdentifier: 
+  runes:
+  - {fileID: 11400000, guid: c0c4c84170214f6448ac7e377a784af4, type: 2}
+  - {fileID: 11400000, guid: 41d59a860294a1d4eb9866029ef6c33f, type: 2}

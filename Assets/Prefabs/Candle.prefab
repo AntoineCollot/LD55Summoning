@@ -47,7 +47,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.9622642, g: 0.7275632, b: 0.59460664, a: 1}
   m_Intensity: 1
-  m_Range: 5
+  m_Range: 4.5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -167,7 +167,7 @@ Transform:
   - {fileID: 4003850272796421861}
   - {fileID: 4114864326326638068}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3738565143149393327
 MeshFilter:
@@ -824,7 +824,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 1000
+    maxNumParticles: 20
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
