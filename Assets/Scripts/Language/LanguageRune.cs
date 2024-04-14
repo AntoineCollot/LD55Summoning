@@ -14,9 +14,14 @@ public class LanguageRune : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Init();
+        Draw(defaultRune);
+    }
+
+    void Init()
+    {
         vBase = GetComponent<Image>();
         alphabet = Resources.Load<LanguageAlphabet>("Alphabet");
-        Draw(defaultRune);
     }
 
 #if UNITY_EDITOR
@@ -30,9 +35,13 @@ public class LanguageRune : MonoBehaviour
     {
         Clear();
 
-        if (runeParts == null || runeParts.Count == 0)
+        if (!LanguageAlphabet.IsRuneValid(runeParts))
+        {
+            Debug.Log("<color=#FF4444>Rune isn't valid</color>");
             return;
+        }
 
+        vBase.enabled = true;
         //Base
         int runeID = 0;
         vBase.sprite = alphabet.GetBase(runeParts[runeID]);
@@ -45,31 +54,24 @@ public class LanguageRune : MonoBehaviour
         RunePart previousRune = RunePart.Right;
         while (runeID < runeParts.Count)
         {
-            RunePart currentRune = runeParts[runeID];
-
-            //Repeats
-            int repeat = 0;
-            for (int r = 1; r < LanguageAlphabet.MAX_REPEATS + 1; r++)
-            {
-                if (runeID + r >= runeParts.Count)
-                    break;
-
-                //if repeat, count and move to next rune
-                if (runeParts[runeID + r] == currentRune)
-                {
-                    repeat++;
-                    runeID++;
-                }
-            }
+            LanguageAlphabet.ParseRune(runeParts, runeID, out RunePart displayPart, out int repeat);
 
             lines[lineID].enabled = true;
-            lines[lineID].sprite = alphabet.GetLine(currentRune, repeat, previousRune);
-            previousRune = currentRune;
+            lines[lineID].sprite = alphabet.GetLine(displayPart, repeat, previousRune);
+
+            //Move next
+            previousRune = displayPart;
+            lineID++;
+            runeID++;
+            //Do not process the repeats
+            runeID += repeat;
         }
     }
 
     public void Clear()
     {
+        if (vBase == null || alphabet == null)
+            Init();
         vBase.enabled = false;
         foreach (Image line in lines)
         {

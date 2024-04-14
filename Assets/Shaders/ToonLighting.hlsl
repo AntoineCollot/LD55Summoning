@@ -11,7 +11,7 @@ half3 GetAdditionalLightColor(float3 Normal, float3 WPos, out half Intensity)
 #endif
 
 #define COOKIE_TILING 0.05
-void ToonShading_float(in half3 texColor, in float3 Normal, in float3 ClipSpacePos, in float3 WorldPos, in float3 ViewDir,in float Glossiness, out float3 ToonRampOutput)
+void ToonShading_float(in half3 texColor, in float3 Normal, in float3 ClipSpacePos, in float3 WorldPos, in float3 ViewDir,in float Glossiness,in float lightMult, out float3 ToonRampOutput)
 {
 
 	// set the shader graph node previews
@@ -69,5 +69,6 @@ void ToonShading_float(in half3 texColor, in float3 Normal, in float3 ClipSpaceP
 	
 	// add in lights and extra tinting
 	ToonRampOutput = lightTint + (specularIntensity +rimIntensity) *light.color + addLightCol;
+	ToonRampOutput *= lightMult;
 #endif
 }
