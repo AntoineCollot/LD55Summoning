@@ -2,11 +2,18 @@
 #else
 half3 GetAdditionalLightColor(float3 Normal, float3 WPos, out half Intensity)
 {
-	Light addLight = GetAdditionalLight(0, WPos, 1);
-	half lightDot = dot(Normal, addLight.direction);
-	Intensity = smoothstep(0, 0.02, lightDot* addLight.distanceAttenuation) * addLight.shadowAttenuation * saturate(GetAdditionalLightsCount());
-
-	return lerp(0,addLight.color,Intensity);
+	half3 addLightCol = half3(0,0,0);
+	half currentIntensity = 0;
+    uint numAdditionalLights = GetAdditionalLightsCount();
+    for (uint lightI = 0; lightI < numAdditionalLights; lightI++) {
+        Light addLight = GetAdditionalLight(lightI, WPos, 1);
+        half lightDot = dot(Normal, addLight.direction);
+		currentIntensity = smoothstep(0, 0.03, lightDot* addLight.distanceAttenuation) * addLight.shadowAttenuation * saturate(GetAdditionalLightsCount());
+		Intensity+=currentIntensity;
+		addLightCol+= lerp(0,addLight.color,currentIntensity);
+	} 
+	
+	return addLightCol;
 }
 #endif
 
@@ -41,7 +48,7 @@ void ToonShading_float(in half3 texColor, in float3 Normal, in float3 ClipSpaceP
 #endif
 
 	//Rework glossiness to better handle small values, add a fixed min glossiness
-	Glossiness = saturate(Glossiness * Glossiness *Glossiness  + 0.2);
+	Glossiness = saturate(Glossiness * Glossiness *Glossiness);
 
 	//Light
 	half NdotL = dot(Normal, light.direction);

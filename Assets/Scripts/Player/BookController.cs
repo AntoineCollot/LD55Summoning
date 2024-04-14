@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BookController : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class BookController : MonoBehaviour
     Book hoveredBook;
     Book pickedUpBook;
     public bool HasBook => pickedUpBook != null;
+
+    public UnityEvent onBookEvent = new UnityEvent();
 
     InputMap inputs;
 
@@ -82,6 +85,7 @@ public class BookController : MonoBehaviour
         bookAnim.SetBool("IsPickedUp", true);
         freezePlayer.SetOn(true);
         SFXManager.PlaySound(GlobalSFX.OpenBook);
+        onBookEvent.Invoke();
     }
 
     public void DropBook()
@@ -92,5 +96,6 @@ public class BookController : MonoBehaviour
         bookAnim.SetBool("IsPickedUp", false);
         freezePlayer.SetOn(false);
         SFXManager.PlaySound(GlobalSFX.CloseBook);
+        onBookEvent.Invoke();
     }
 }
