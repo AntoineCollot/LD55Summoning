@@ -8,7 +8,7 @@ public class CharAnimations : MonoBehaviour
     CharController controller;
     Animator anim;
     
-    public Vector3 currentDirection = Vector3.forward;
+    public Vector3 currentDirection;
     Vector3 targetDirection;
     public float rotationSpeed = 360;
 
@@ -23,7 +23,7 @@ public class CharAnimations : MonoBehaviour
     {
         controller = GetComponentInParent<CharController>();
         anim = GetComponent<Animator>();
-        currentDirection.Normalize();
+        currentDirection = -Vector3.forward;
     }
 
     void Update()

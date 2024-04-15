@@ -12,7 +12,7 @@ public class LanguageRune : MonoBehaviour
     [SerializeField] List<RunePart> defaultRune;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Init();
         Draw(defaultRune);
@@ -27,7 +27,8 @@ public class LanguageRune : MonoBehaviour
 #if UNITY_EDITOR
     private void OnValidate()
     {
-        Draw(defaultRune);
+        if(!Application.isPlaying)
+            Draw(defaultRune);
     }
 #endif
 

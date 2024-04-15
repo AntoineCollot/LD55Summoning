@@ -26,7 +26,7 @@ public class Memorize : MonoBehaviour
 
     private void OnBookEvent()
     {
-        memorizePrompt.SetActive(bookController.HasBook);
+        memorizePrompt.SetActive(bookController.HasBook && bookController.pickedUpBook.rune != null);
     }
 
     private void OnMemorize(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -49,6 +49,7 @@ public class Memorize : MonoBehaviour
 
         if (spawnedRunes.Count > 5)
         {
+            Destroy(spawnedRunes[0].gameObject);
             spawnedRunes.RemoveAt(0);
         }
     }

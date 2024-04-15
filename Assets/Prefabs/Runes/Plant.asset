@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7106229b02dd5f44aaaa8605f833363, type: 3}
   m_Name: Plant
   m_EditorClassIdentifier: 
-  runeParts: 0000000001000000020000000300000002000000
+  runeParts: 0000000001000000020000000300000003000000

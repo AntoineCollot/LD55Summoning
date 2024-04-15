@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class QuestManager : MonoBehaviour
@@ -20,6 +21,8 @@ public class QuestManager : MonoBehaviour
     [SerializeField] GameObject questInfoCanvas;
     [SerializeField] Image questImage;
 
+    public UnityEvent onQuestsFinished = new UnityEvent();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +35,9 @@ public class QuestManager : MonoBehaviour
 
     private void Update()
     {
+        if (!GameManager.Instance.GameIsPlaying)
+            return;
+
         if (!phone.isRinging)
             timeSinceLastQuest += Time.deltaTime;
 
@@ -96,7 +102,18 @@ public class QuestManager : MonoBehaviour
         invocation.SummoningSuccess();
 
         if (onGoingQuests.Count == 0)
-            timeSinceLastQuest = 10000;
+        {
+            //End
+            if (quests.Count == 0)
+            {
+                onQuestsFinished.Invoke();
+            }
+            else
+            {
+                timeSinceLastQuest = quests[0].maxIntervalSinceLastQuest - 3;
+            }
+        }
+      
     }
 }
 

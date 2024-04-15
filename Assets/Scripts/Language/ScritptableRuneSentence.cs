@@ -38,7 +38,7 @@ public class ScritptableRuneSentence : ScriptableObject
             return false;
 
 #if UNITY_EDITOR
-        Debug.Log("Trying to match: ");
+        Debug.Log($"Trying to match {name}: ");
         Print();
 #endif
 

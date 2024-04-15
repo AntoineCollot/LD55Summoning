@@ -25,7 +25,7 @@ public class InvocationCircle : MonoBehaviour
     InputMap inputs;
     RunePart lastFrameRuneDir;
     float dirProgress;
-    const float HOLD_DIR_TIME = 0.5f;
+    const float HOLD_DIR_TIME = 0.4f;
     public UnityEvent onRuneEvent = new UnityEvent();
 
     //Rune
@@ -37,7 +37,6 @@ public class InvocationCircle : MonoBehaviour
 
     [Header("Work")]
     [SerializeField] Renderer workSquare;
-    Material workSquareMat;
     bool workDone;
 
     // Start is called before the first frame update
@@ -224,19 +223,21 @@ public class InvocationCircle : MonoBehaviour
     public void SummoningSuccess()
     {
         workDone = true;
-        mat.SetColor("_PowerColor", errorColor);
+        mat.SetColor("_PowerColor", baseColor);
 
         StartCoroutine(WorkDoneAnim());
     }
 
     IEnumerator WorkDoneAnim()
     {
+        Material workSquareMat = workSquare.material;
+
         float t = 0;
         while(t<1)
         {
             t += Time.deltaTime;
 
-            mat.SetFloat("_Power", Mathf.PingPong(Mathf.Clamp01(t)*2, 1));
+            workSquareMat.SetFloat("_Power", Mathf.PingPong(Mathf.Clamp01(t)*2, 1));
 
             yield return null;
         }
